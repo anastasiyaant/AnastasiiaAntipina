@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "SuiteMultDiv">
+    <test name = "suite2">
+        <classes>
+            <class name="hw1.Multiply">
+                <methods>
+                    <include name="multiplyLongTest"/>
+                    <include name="multiplyLongTestFail"/>
+                </methods>
+            </class>
+            <class name="hw1.Divide">
+                <methods>
+                    <include name="divideTest"/>
+                    <include name="divideTestFail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "Full suite">
+    <test name = "suite">
+        <classes>
+            <class name="hw1.Divide"/>
+            <class name="hw1.Multiply"/>
+            <class name="hw1.Subtract"/>
+            <class name="hw1.Sum"/>
+        </classes>
+    </test>
+</suite>
+

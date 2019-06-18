@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "suiteAddSub">
+<test name = "suite1">
+    <classes>
+        <class name="hw1.Sum">
+            <methods>
+                <include name="sumLongTest"/>
+                <include name="sumLongTestFail"/>
+            </methods>
+        </class>
+        <class name="hw1.Subtract">
+            <methods>
+                <include name="subtractLongTest"/>
+                <include name="subtractLongTestFail"/>
+            </methods>
+        </class>
+    </classes>
+</test>
+
+</suite>
