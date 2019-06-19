@@ -9,8 +9,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
 public class Sum {
+    //    TODO I think it will be better to move it to BaseClass
+//    TODO Why is this field has protected modifier?
     protected Calculator calc;
 
+    //    TODO Why you decide use this set of the test data?
     @DataProvider
     public static Object[][] correctSumData() {
         return new Object[][]{{1, 2, 3}, {0, 0, 0}, {0, 1, 1}, {-1, 1, 0}, {-100, 15, -85}, {-2, -2, -4}, {12345, 12345, 24690}};
@@ -21,6 +24,7 @@ public class Sum {
         return new Object[][]{{12, 2, 12}, {0, 5, 0}, {-10, 10, 1}, {-10, 50, 15}, {-7, -9, -30}, {85245, 7412, 0}};
     }
 
+    //    TODO I think it will be better to move it to BaseClass
     @BeforeMethod
     public void createCalc() {
         calc = new Calculator();
