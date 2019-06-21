@@ -8,7 +8,6 @@ import static org.testng.Assert.assertNotEquals;
 
 public class Subtract extends BaseClass {
 
-    //    TODO Why you decide use this set of the test data?
     // Для того чтобы проверить на различных типах данных
     // 1) вычитание любых, 2) вычитание из нуля, 3) вычитание для получения нуля,
     // 4) вычитание из отрицательного положительного, 5) вычитание из трехзначного отрацительного,

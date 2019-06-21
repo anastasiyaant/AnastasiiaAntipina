@@ -7,7 +7,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
 public class Multiply extends BaseClass {
-    //    TODO Why you decide use this set of the test data?
     // Для того чтобы проверить на различных типах данных
     // 1) умножение одинаковые чисел, 2) умножение любых чисел,
     // 3) умножение на ноль, 4) умножение на двузначное число
