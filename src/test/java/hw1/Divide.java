@@ -1,34 +1,26 @@
 package hw1;
 
-import com.epam.tat.module4.Calculator;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
-public class Divide {
-    //    TODO I think it will be better to move it to BaseClass
-//    TODO Why is this field has protected modifier?
-    protected Calculator calc;
-
-//    TODO Why you decide use this set of the test data?
+public class Divide extends BaseClass {
+    //    TODO Why you decide use this set of the test data?
+    // Для того чтобы проверить на различных типах данных
+    // 1) данные с одинаковыми a и b, 2) данные с любыми числами, 3) данные, где a = 0, b - любое число,
+    // 4) для проверки округления, 5) деление большого числа для получения ненулевого результата,
+    // 6) деление большого числа на однозначное, чтобы получить так же большое число
+    // аналогично для wrongDivideData
     @DataProvider
     public static Object[][] correctDivideData() {
-        return new Object[][]{{1, 1, 1}, {25, 5, 5}, {0, 5, 0}, {1, 2, 0}, {1, 3, 0}, {147896, 212, 697}, {25874, 2, 12937}};
+        return new Object[][]{{1, 1, 1}, {25, 5, 5}, {0, 5, 0}, {1, 2, 0}, {147896, 212, 697}, {25874, 2, 12937}};
     }
 
     @DataProvider
     public static Object[][] wrongDivideData() {
-        return new Object[][]{{5, 5, 0}, {100, 4, 2}, {0, 2, 1}, {16, 4, 5}, {1, 8, 4}, {14789, 113, 14}, {24274, 2, 4254}};
-    }
-
-
-    //    TODO I think it will be better to move it to BaseClass
-    @BeforeMethod
-    public void createCalc() {
-        calc = new Calculator();
+        return new Object[][]{{5, 5, 0}, {100, 4, 2}, {0, 2, 1}, {1, 8, 4}, {14789, 113, 14}, {24274, 2, 4254}};
     }
 
     @Test(dataProvider = "correctDivideData")
