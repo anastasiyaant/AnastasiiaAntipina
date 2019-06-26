@@ -7,7 +7,6 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
 public class Divide extends BaseClass {
-    //    TODO Why you decide use this set of the test data?
     // Для того чтобы проверить на различных типах данных
     // 1) данные с одинаковыми a и b, 2) данные с любыми числами, 3) данные, где a = 0, b - любое число,
     // 4) для проверки округления, 5) деление большого числа для получения ненулевого результата,

@@ -8,7 +8,6 @@ import static org.testng.Assert.assertNotEquals;
 
 public class Sum extends BaseClass {
 
-    //    TODO Why you decide use this set of the test data?
     // Для того чтобы проверить на различных типах данных
     // 1)сложение любых, 2)сложение нулей, 3) сложение с нулем,
     // 4) сложение противоположных по знаку, но равных по значению чисел
