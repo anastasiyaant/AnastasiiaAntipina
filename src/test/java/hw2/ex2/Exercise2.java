@@ -22,9 +22,10 @@ public class Exercise2 extends BaseClass {
         List<String> serviceHeaderTitles = Arrays.asList("support", "dates", "complex table",
                 "simple table", "table with pages", "different elements");
         // TODO Why do you decide not extract getting webElement text to the separate method?
+        // Fixed it.
         List<String> actualServiceHeaderTitles = new ArrayList<>();
         for (WebElement serviceHeader : serviceHeaders) {
-            actualServiceHeaderTitles.add(serviceHeader.getText().toLowerCase());
+            actualServiceHeaderTitles.add(getElementText(serviceHeader).toLowerCase());
         }
         SoftAssert sa = new SoftAssert();
         for (String serviceHeaderTitle : serviceHeaderTitles) {
@@ -38,9 +39,10 @@ public class Exercise2 extends BaseClass {
         List<String> serviceLeftHeaderTitles = Arrays.asList("support", "dates", "complex table",
                 "simple table", "table with pages", "different elements");
         // TODO Why do you decide not extract getting webElement text to the separate method?
+        // Fixed it
         List<String> actualServiceLeftHeaderTitles = new ArrayList<>();
         for (WebElement serviceLeftHeader : serviceLeftHeaders) {
-            actualServiceLeftHeaderTitles.add(serviceLeftHeader.getText().toLowerCase());
+            actualServiceLeftHeaderTitles.add(getElementText(serviceLeftHeader).toLowerCase());
         }
         sa = new SoftAssert();
         for (String serviceLeftHeaderTitle : serviceLeftHeaderTitles) {
@@ -60,16 +62,16 @@ public class Exercise2 extends BaseClass {
         assertEquals(checkboxes.size(), 4);
         assertEquals(radios.size(), 4);
         assertEquals(dropdowns.size(), 1);
-        assertTrue(buttonLeft.isDisplayed());
-        assertTrue(buttonRight.isDisplayed());
+        assertTrue(isElementDisplayed(buttonLeft));
+        assertTrue(isElementDisplayed(buttonRight));
 
         //9. Assert that there is Right Section
         WebElement rightSection = driver.findElement(By.name("log-sidebar"));
-        assertTrue(rightSection.isDisplayed());
+        assertTrue(isElementDisplayed(rightSection));
 
         //10. Assert that there is Left Section
         WebElement leftSection = driver.findElement(By.className("sidebar-menu"));
-        assertTrue(leftSection.isDisplayed());
+        assertTrue(isElementDisplayed(leftSection));
 
         //11. Select Checkboxes
         selectCheckbox("Water");
@@ -85,6 +87,7 @@ public class Exercise2 extends BaseClass {
 
         //14. Assert that for radiobutton there is a log row and value is corresponded to the section value
         logRow("metal", "Selen");
+
         //15. Select in dropdown
         selectOption("Yellow");
 

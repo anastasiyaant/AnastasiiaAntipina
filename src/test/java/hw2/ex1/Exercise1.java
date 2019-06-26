@@ -22,10 +22,12 @@ public class Exercise1 extends BaseClass {
         //6. Assert that there are 4 items on the header section and they have proper texts
         List<WebElement> topMenuElements = driver.findElements(By.xpath("//*[@class='uui-navigation nav navbar-nav m-l8']/li"));
         List<String> headerMenuTitle = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+
         // TODO Why do you decide not extract getting webElement text to the separate method?
+        // Yes, it will be better. Fixed it.
         List<String> actualHeaderMenuTitle = new ArrayList<>();
         for (WebElement topMenuElement : topMenuElements) {
-            actualHeaderMenuTitle.add(topMenuElement.getText());
+            actualHeaderMenuTitle.add(getElementText(topMenuElement));
         }
         assertEquals(actualHeaderMenuTitle, headerMenuTitle);
 
@@ -38,9 +40,10 @@ public class Exercise1 extends BaseClass {
                 "To be flexible and\ncustomizable", "To be multiplatform", "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
         List<WebElement> iconTextElements = driver.findElements((By.cssSelector("span.benefit-txt")));
         // TODO Why do you decide not extract getting webElement text to the separate method?
+        // Fixed it.
         List<String> actualIconText = new ArrayList<>();
         for (WebElement iconTextElement : iconTextElements) {
-            actualIconText.add(iconTextElement.getText());
+            actualIconText.add(getElementText(iconTextElement));
         }
         assertEquals(actualIconText, iconText);
 
@@ -58,20 +61,20 @@ public class Exercise1 extends BaseClass {
 
         //10. Assert that there is the iframe in the center of page
         WebElement iframe = driver.findElement(By.id("iframe"));
-        assertTrue(iframe.isDisplayed());
+        assertTrue(isElementDisplayed(iframe));
 
         //11. Switch to the iframe and check that there is Epam logo in the left top conner of iframe
         String windowHandler = driver.getWindowHandle();
         driver.switchTo().frame("iframe");
         WebElement epamLogo = driver.findElement(By.id("epam_logo"));
-        assertTrue(epamLogo.isDisplayed());
+        assertTrue(isElementDisplayed(epamLogo));
 
         //12. Switch to original window back
         driver.switchTo().window(windowHandler);
 
         //13. Assert a text of the sub header
         WebElement subHeader = driver.findElement(By.linkText("JDI GITHUB"));
-        assertTrue(subHeader.isDisplayed());
+        assertTrue(isElementDisplayed(subHeader));
 
         //14. Assert that JDI GITHUB is a link and has a proper URL
         String subHeaderLink = subHeader.getAttribute("href");
@@ -79,12 +82,11 @@ public class Exercise1 extends BaseClass {
 
         //15. Assert that there is Left Section
         WebElement leftSection = driver.findElement(By.name("navigation-sidebar"));
-        assertTrue(leftSection.isDisplayed());
+        assertTrue(isElementDisplayed(leftSection));
 
         //16. Assert that there is Footer
         WebElement footer = driver.findElement(By.className("footer-bg"));
-        assertTrue(footer.isDisplayed());
+        assertTrue(isElementDisplayed(footer));
     }
-
 
 }

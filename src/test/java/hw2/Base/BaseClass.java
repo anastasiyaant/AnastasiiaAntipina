@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeSuite;
 import java.nio.file.Paths;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertFalse;
 
 public class BaseClass {
@@ -28,7 +29,7 @@ public class BaseClass {
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://epam.github.io/JDI");
-        loginTest("epam", "1234");
+        login("epam", "1234");
     }
 
     @AfterMethod
@@ -37,7 +38,8 @@ public class BaseClass {
     }
 
     // TODO Why do you set suffix Test for the method
-    protected void loginTest(String login, String password) {
+    // It was by mistake, fixed it
+    protected void login(String login, String password) {
         driver.findElement(By.id("user-icon")).click();
         driver.findElement(By.id("name")).sendKeys(login);
         driver.findElement(By.cssSelector("#password")).sendKeys(password);
@@ -58,7 +60,9 @@ public class BaseClass {
         WebElement logRowEl = driver.findElement(By.xpath("//ul[@class='panel-body-list logs']//li[contains(string(),'"
                 + option + "')" + "and contains(text(), '" + condition + "')]"));
         // TODO What do you try to check this line?
-        logRowEl.isDisplayed();
+        // Is element with correct value displayed on the site or not.
+        // Additionally got WebElement.isDisplayed in separated method
+        assertTrue(isElementDisplayed(logRowEl));
     }
 
     protected void selectRadio(String name) {
@@ -74,5 +78,13 @@ public class BaseClass {
     protected void checkUnselectedCheckbox(String name) {
         selectCheckbox(name);
         assertFalse(driver.findElement(By.xpath("//label[contains(string(), '" + name + "')]/input")).isSelected());
+    }
+
+    protected String getElementText(WebElement element){
+        return element.getText();
+    }
+
+    protected boolean isElementDisplayed(WebElement element){
+        return element.isDisplayed();
     }
 }
