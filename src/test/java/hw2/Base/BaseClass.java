@@ -1,3 +1,4 @@
+// TODO package name should be in lower case
 package hw2.Base;
 
 import org.openqa.selenium.By;
@@ -35,6 +36,7 @@ public class BaseClass {
         driver.close();
     }
 
+    // TODO Why do you set suffix Test for the method
     protected void loginTest(String login, String password) {
         driver.findElement(By.id("user-icon")).click();
         driver.findElement(By.id("name")).sendKeys(login);
@@ -55,6 +57,7 @@ public class BaseClass {
     protected void logRow(String option, String condition) {
         WebElement logRowEl = driver.findElement(By.xpath("//ul[@class='panel-body-list logs']//li[contains(string(),'"
                 + option + "')" + "and contains(text(), '" + condition + "')]"));
+        // TODO What do you try to check this line?
         logRowEl.isDisplayed();
     }
 
