@@ -1,6 +1,6 @@
 package hw2.ex2;
 
-import hw2.Base.BaseClass;
+import hw2.base.BaseClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;

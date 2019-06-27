@@ -1,5 +1,5 @@
 // TODO package name should be in lower case
-package hw2.Base;
+package hw2.base;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
