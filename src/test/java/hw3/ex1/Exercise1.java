@@ -1,4 +1,4 @@
-package hw2.ex1;
+package hw3.ex1;
 
 import hw2.base.BaseClass;
 import org.openqa.selenium.By;
@@ -23,8 +23,6 @@ public class Exercise1 extends BaseClass {
         List<WebElement> topMenuElements = driver.findElements(By.xpath("//*[@class='uui-navigation nav navbar-nav m-l8']/li"));
         List<String> headerMenuTitle = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
 
-        // TODO Why do you decide not extract getting webElement text to the separate method?
-        // Yes, it will be better. Fixed it.
         List<String> actualHeaderMenuTitle = new ArrayList<>();
         for (WebElement topMenuElement : topMenuElements) {
             actualHeaderMenuTitle.add(getElementText(topMenuElement));
@@ -39,8 +37,7 @@ public class Exercise1 extends BaseClass {
         List<String> iconText = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
                 "To be flexible and\ncustomizable", "To be multiplatform", "Already have good HomePage\n(about 20 internal and\nsome external projects),\nwish to get more…");
         List<WebElement> iconTextElements = driver.findElements((By.cssSelector("span.benefit-txt")));
-        // TODO Why do you decide not extract getting webElement text to the separate method?
-        // Fixed it.
+
         List<String> actualIconText = new ArrayList<>();
         for (WebElement iconTextElement : iconTextElements) {
             actualIconText.add(getElementText(iconTextElement));
