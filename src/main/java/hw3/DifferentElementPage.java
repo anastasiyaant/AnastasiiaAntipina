@@ -7,18 +7,30 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import javax.naming.ldap.PagedResultsControl;
+import java.util.List;
 import java.util.PrimitiveIterator;
 
-public class DifferentElementPage {
-    private WebDriver driver;
-    @FindBy(className = "dropdown-toggle")
-    private WebElement headerMenuService;
-    @FindBy(xpath = "//*[@class='dropdown-menu']/li/a[text()='Different elements']")
-    private WebElement differentElementsPageServiceHeaderMenu;
+public class DifferentElementPage extends  BasePage{
+    @FindBy(className = "label-checkbox")
+    private List<WebElement> checkboxes;
+    @FindBy(className = "label-radio")
+    private List<WebElement> radios;
+    @FindBy(className = "colors")
+    private List<WebElement> dropdowns;
+    @FindBy(name = "Default Button")
+    private WebElement buttonLeft;
+    @FindBy(css = "input[value='Button']")
+    private WebElement buttonRight;
+    @FindBy(name = "log-sidebar")
+    private WebElement rightSection;
+    @FindBy(className = "sidebar-menu")
+    private WebElement leftSection;
+
+
+
 
     public DifferentElementPage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        super(driver);
     }
 
     public void clickServiceHeaderMenu(){
@@ -26,6 +38,6 @@ public class DifferentElementPage {
     }
 
     public void clickDiffElemPageServiceHeaderMenu(){
-        differentElementsPageServiceHeaderMenu.click();
+        differentElementsPageServiceHeaderMenuButton.click();
     }
 }

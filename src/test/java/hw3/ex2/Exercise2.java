@@ -16,40 +16,10 @@ import static org.testng.Assert.assertTrue;
 public class Exercise2 extends BaseClass {
     @Test
     public void Exercise2Test() {
-        //5. Click on "Service" subcategory in the header and check that drop down contains options
-        driver.findElement(By.className("dropdown-toggle")).click();
-        List<WebElement> serviceHeaders = driver.findElements(By.xpath("//*[@class='dropdown-menu']/li"));
-        List<String> serviceHeaderTitles = Arrays.asList("support", "dates", "complex table",
-                "simple table", "table with pages", "different elements");
 
-        List<String> actualServiceHeaderTitles = new ArrayList<>();
-        for (WebElement serviceHeader : serviceHeaders) {
-            actualServiceHeaderTitles.add(getElementText(serviceHeader).toLowerCase());
-        }
-        SoftAssert sa = new SoftAssert();
-        for (String serviceHeaderTitle : serviceHeaderTitles) {
-            sa.assertTrue(actualServiceHeaderTitles.contains(serviceHeaderTitle));
-        }
-        sa.assertAll();
 
-        //6. Click on "Service" subcategory in the left section and check that drop down contains options
-        driver.findElement(By.xpath("//*[@class='menu-title' and contains(@index, 3)]")).click();
-        List<WebElement> serviceLeftHeaders = driver.findElements(By.xpath("//*[@class='sub']/li"));
-        List<String> serviceLeftHeaderTitles = Arrays.asList("support", "dates", "complex table",
-                "simple table", "table with pages", "different elements");
 
-        List<String> actualServiceLeftHeaderTitles = new ArrayList<>();
-        for (WebElement serviceLeftHeader : serviceLeftHeaders) {
-            actualServiceLeftHeaderTitles.add(getElementText(serviceLeftHeader).toLowerCase());
-        }
-        sa = new SoftAssert();
-        for (String serviceLeftHeaderTitle : serviceLeftHeaderTitles) {
-            sa.assertTrue(actualServiceLeftHeaderTitles.contains(serviceLeftHeaderTitle));
-        }
-        sa.assertAll();
-        //7. Open through the header menu Service->Different element page
-       // driver.findElement(By.className("dropdown-toggle")).click();
-       // driver.findElement(By.xpath("//*[@class='dropdown-menu']/li/a[text()='Different elements']")).click();
+
 
         //8. Check interface on Different element page, it contains all needed elements
         List<WebElement> checkboxes = driver.findElements(By.className("label-checkbox"));

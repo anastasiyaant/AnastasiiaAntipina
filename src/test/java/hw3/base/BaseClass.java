@@ -17,15 +17,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertFalse;
 
-public class HomePageClass {
+public class BaseClass{
 
     protected WebDriver driver;
-    @FindBy(id = "user-icon")
-    private WebElement userIcon;
-    @FindBy(id = "name")
-    private WebElement userName;
-    @FindBy(css = "#password")
-    private WebElement password;
+    protected HomePage hp;
+    public static final String title = "Home Page";
 
     @BeforeSuite
     public void setUpDriverPath() {
@@ -36,7 +32,6 @@ public class HomePageClass {
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://epam.github.io/JDI");
-        login("epam", "1234");
     }
 
     @AfterMethod
@@ -44,16 +39,9 @@ public class HomePageClass {
         driver.close();
     }
 
-    protected void login(String login, String password) {
-        HomePage base1 = PageFactory.initElements(driver, HomePage.class);
-        base1.login(login, password);
-        //Assert User name in the left-top side of screen that user is loggined
-        assertEquals(driver.findElement(By.id("user-name")).getText(), "PITER CHAILOVSKII");
-    }
 
-    protected void checkOpenPageTitle(String title) {
-        assertEquals(driver.getTitle(), title);
-    }
+
+
 
     protected void selectCheckbox(String name) {
         driver.findElement(By.xpath("//label[contains(string(), '" + name + "')]/input")).click();
@@ -80,11 +68,6 @@ public class HomePageClass {
         assertFalse(driver.findElement(By.xpath("//label[contains(string(), '" + name + "')]/input")).isSelected());
     }
 
-    protected String getElementText(WebElement element) {
-        return element.getText();
-    }
 
-    protected boolean isElementDisplayed(WebElement element) {
-        return element.isDisplayed();
-    }
+
 }
