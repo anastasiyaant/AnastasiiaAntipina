@@ -12,15 +12,15 @@ public enum Menu {
 
     final String name;
 
-    Menu(String name){
-        this.name=name;
+    Menu(String name) {
+        this.name = name;
     }
 
     public String getName() {
         return name;
     }
 
-    public static List<String> getMenuStringList(){
-        return Stream.of(Menu.values()).map(v->v.getName()).collect(Collectors.toList());
+    public static List<String> getMenuStringList() {
+        return Stream.of(Menu.values()).map(v -> v.getName()).collect(Collectors.toList());
     }
 }

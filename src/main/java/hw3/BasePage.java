@@ -1,6 +1,5 @@
 package hw3;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +12,7 @@ public abstract class BasePage {
     protected List<WebElement> topMenuElements;
     @FindBy(name = "navigation-sidebar")
     protected WebElement leftSection;
-    @FindBy(name = "footer-bg")
+    @FindBy(className = "footer-bg")
     protected WebElement footer;
     @FindBy(xpath = "//*[@class='menu-title' and contains(@index, 3)]")
     protected WebElement serviceLeftButton;
@@ -23,24 +22,21 @@ public abstract class BasePage {
     protected WebElement headerMenuService;
     @FindBy(xpath = "//*[@class='dropdown-menu']/li/a[text()='Different elements']")
     protected WebElement differentElementsPageServiceHeaderMenuButton;
-    @FindBy (xpath = "//*[@class='dropdown-menu']/li")
+    @FindBy(xpath = "//*[@class='dropdown-menu']/li")
     protected List<WebElement> serviceHeaders;
 
-    @FindBy(id="user-name")
+    @FindBy(id = "user-name")
     protected WebElement fullUserName;
-
-
-
 
 
     protected WebDriver driver;
 
-    public BasePage(WebDriver driver){
+    public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public String getPageTitle(){
+    public String getPageTitle() {
         return driver.getTitle();
     }
 
@@ -52,7 +48,7 @@ public abstract class BasePage {
         return topMenuElements;
     }
 
-    public void switchToOriginalWindow(){
+    public void switchToOriginalWindow() {
         driver.switchTo().defaultContent();
     }
 

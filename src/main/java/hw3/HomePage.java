@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
     @FindBy(id = "user-icon")
     private WebElement userIcon;
     @FindBy(id = "name")
@@ -27,13 +27,11 @@ public class HomePage extends BasePage{
     protected WebElement iframe;
     @FindBy(id = "epam_logo")
     protected WebElement epamLogo;
-    @FindBy(css = "[class='text-center']")
-    protected WebElement subHeader;
     @FindBy(linkText = "JDI GITHUB")
-    protected WebElement link;
+    protected WebElement subHeader;
 
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 
@@ -45,11 +43,11 @@ public class HomePage extends BasePage{
         loginButton.click();
     }
 
-    public List<WebElement> getImages(){
+    public List<WebElement> getImages() {
         return images;
     }
 
-    public List<WebElement> getIconTextElements(){
+    public List<WebElement> getIconTextElements() {
         return iconTextElements;
     }
 
@@ -65,7 +63,7 @@ public class HomePage extends BasePage{
         return iframe;
     }
 
-    public void  switchToIframe(){
+    public void switchToIframe() {
         driver.switchTo().frame(iframe);
     }
 
@@ -73,10 +71,11 @@ public class HomePage extends BasePage{
         return epamLogo;
     }
 
-    public String getSubHeader(){
+    public String getSubHeader() {
         return subHeader.getText();
     }
-    public String getLink(){
-        return link.getText();
+
+    public String getLink() {
+        return subHeader.getAttribute("href");
     }
 }

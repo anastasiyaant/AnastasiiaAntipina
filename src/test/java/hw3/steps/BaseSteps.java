@@ -23,12 +23,13 @@ public class BaseSteps {
         for (WebElement topMenuElement : topMenuElements) {
             actualHeaderMenuTitle.add(topMenuElement.getText().toLowerCase());
         }
-        for (String header:headerMenuTitle){
+        for (String header : headerMenuTitle) {
             headerMenuTitleLower.add(header.toLowerCase());
         }
         assertEquals(actualHeaderMenuTitle, headerMenuTitleLower);
     }
-    public void checkServiceSubcategoryEquals(List<WebElement>  serviceHeaders, List<String> serviceHeaderTitles){
+
+    public void checkServiceSubcategoryEquals(List<WebElement> serviceHeaders, List<String> serviceHeaderTitles) {
         List<String> actualServiceHeaderTitles = new ArrayList<>();
         for (WebElement serviceHeader : serviceHeaders) {
             actualServiceHeaderTitles.add(serviceHeader.getText().toLowerCase());
@@ -39,7 +40,8 @@ public class BaseSteps {
         }
         sa.assertAll();
     }
-    public void checkLeftServiceSubcategoryEquals(List<WebElement>  serviceLeftHeaders, List<String> serviceLeftHeaderTitles){
+
+    public void checkLeftServiceSubcategoryEquals(List<WebElement> serviceLeftHeaders, List<String> serviceLeftHeaderTitles) {
         List<String> actualServiceLeftHeaderTitles = new ArrayList<>();
         for (WebElement serviceLeftHeader : serviceLeftHeaders) {
             actualServiceLeftHeaderTitles.add(serviceLeftHeader.getText().toLowerCase());
