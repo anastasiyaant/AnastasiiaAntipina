@@ -35,7 +35,7 @@ public class Exercise1 extends BaseClass {
 
         //8. Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<String> iconText = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
-                "To be flexible and\ncustomizable", "To be multiplatform", "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
+                "To be flexible and\ncustomizable", "To be multiplatform", "Already have good HomePage\n(about 20 internal and\nsome external projects),\nwish to get more…");
         List<WebElement> iconTextElements = driver.findElements((By.cssSelector("span.benefit-txt")));
         List<String> actualIconText = new ArrayList<>();
         for (WebElement iconTextElement : iconTextElements) {
