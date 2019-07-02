@@ -6,7 +6,8 @@ import hw4.enums.Menu;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage {
     @FindBy(css = "#user-name")
@@ -49,7 +50,7 @@ public class HomePage {
         return serviceLeftHeader;
     }
 
-    public void clickButton(SelenideElement element){
+    public void clickButton(SelenideElement element) {
         element.click();
     }
 
@@ -57,7 +58,7 @@ public class HomePage {
         return tableWithPagesButton;
     }
 
-    public SelenideElement getMenuItem(Menu menuElement){
+    public SelenideElement getMenuItem(Menu menuElement) {
         return $(By.linkText(menuElement.getName()));
     }
 }

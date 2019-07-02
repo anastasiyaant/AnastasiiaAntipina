@@ -3,7 +3,6 @@ package hw4;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -17,10 +16,10 @@ public class TableWithPagesPage {
     protected SelenideElement ShowEntriesDropdown;
     @FindBy(css = "input[type='search'")
     protected SelenideElement searchField;
-    @FindBy(css="#table-with-pages tbody > tr")
+    @FindBy(css = "#table-with-pages tbody > tr")
     protected ElementsCollection searchResultsRows;
 
-    public TableWithPagesPage(){
+    public TableWithPagesPage() {
         page(this);
     }
 
@@ -31,6 +30,7 @@ public class TableWithPagesPage {
     public SelenideElement getRightSection() {
         return rightSection;
     }
+
     public SelenideElement getShowEntriesDropdown() {
         return ShowEntriesDropdown;
     }

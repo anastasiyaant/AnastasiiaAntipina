@@ -54,10 +54,19 @@
         <profile>
             <id>hw3Test</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw3.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw4Test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4.xml</suite.xml>
             </properties>
         </profile>
     </profiles>
@@ -101,7 +110,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
+            <version>1.18.6</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
