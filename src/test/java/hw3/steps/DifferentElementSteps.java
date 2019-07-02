@@ -32,6 +32,7 @@ public class DifferentElementSteps extends BaseSteps {
         checkLeftServiceSubcategoryEquals(serviceLeftHeaders, serviceLeftHeaderTitles);
     }
 
+    // TODO openDifElPage
     public void openDifElpage() {
         diffElPage.getHeaderMenuService().click();
         diffElPage.getDifferentElementsPageServiceHeaderMenuButton().click();

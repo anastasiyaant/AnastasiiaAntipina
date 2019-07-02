@@ -15,6 +15,7 @@ import java.nio.file.Paths;
 public class BaseClass {
 
     protected WebDriver driver;
+    // TODO JAva Code Convention for the constants
     public static final String title = "Home Page";
 
     @BeforeSuite
