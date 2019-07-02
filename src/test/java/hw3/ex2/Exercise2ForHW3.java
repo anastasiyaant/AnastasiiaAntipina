@@ -15,6 +15,7 @@ public class Exercise2ForHW3 extends BaseClass {
 
     HomePageSteps homePageSteps;
     DifferentElementSteps diffElSteps;
+    // TODO Java Code Convention for the constants
     static final int checkboxesCount = 4;
     static final int dropdownsCount = 1;
     static final int radioCount = 4;

@@ -21,8 +21,6 @@ public class Exercise2 extends BaseClass {
         List<WebElement> serviceHeaders = driver.findElements(By.xpath("//*[@class='dropdown-menu']/li"));
         List<String> serviceHeaderTitles = Arrays.asList("support", "dates", "complex table",
                 "simple table", "table with pages", "different elements");
-        // TODO Why do you decide not extract getting webElement text to the separate method?
-        // Fixed it.
         List<String> actualServiceHeaderTitles = new ArrayList<>();
         for (WebElement serviceHeader : serviceHeaders) {
             actualServiceHeaderTitles.add(getElementText(serviceHeader).toLowerCase());
@@ -38,8 +36,6 @@ public class Exercise2 extends BaseClass {
         List<WebElement> serviceLeftHeaders = driver.findElements(By.xpath("//*[@class='sub']/li"));
         List<String> serviceLeftHeaderTitles = Arrays.asList("support", "dates", "complex table",
                 "simple table", "table with pages", "different elements");
-        // TODO Why do you decide not extract getting webElement text to the separate method?
-        // Fixed it
         List<String> actualServiceLeftHeaderTitles = new ArrayList<>();
         for (WebElement serviceLeftHeader : serviceLeftHeaders) {
             actualServiceLeftHeaderTitles.add(getElementText(serviceLeftHeader).toLowerCase());

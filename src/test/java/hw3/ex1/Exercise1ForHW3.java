@@ -12,6 +12,7 @@ import java.util.List;
 public class Exercise1ForHW3 extends BaseClass {
 
     private HomePageSteps homePageSteps;
+    // TODO Java Code Convention for the constants
     static final int imagesCount = 4;
     static final List<String> iconText = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
             "To be flexible and\ncustomizable", "To be multiplatform",
