@@ -12,6 +12,7 @@ import java.nio.file.Paths;
 import static com.codeborne.selenide.Selenide.close;
 
 public class BaseClass {
+    // TODO Java Code Code convention for the constants
     public static final String link = "https://epam.github.io/JDI";
     public static final String browserTitle = "Home Page";
     public static final String userDataFilePath = "src/test/resources//properties/user.properties";
