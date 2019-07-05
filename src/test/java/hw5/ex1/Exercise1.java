@@ -4,11 +4,13 @@ import hw3.utils.User;
 import hw5.base.BaseClass;
 import hw5.steps.HomePageSteps;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Listeners(AllureAttachmentListener.class)
 public class Exercise1 extends BaseClass {
 
     private HomePageSteps homePageSteps;

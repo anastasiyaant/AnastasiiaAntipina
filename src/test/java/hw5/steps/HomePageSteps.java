@@ -2,6 +2,7 @@ package hw5.steps;
 
 import hw5.HomePage;
 import hw3.enums.Menu;
+import hw5.ex1.TestProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -17,6 +18,7 @@ public class HomePageSteps extends BaseSteps {
 
     public HomePageSteps(WebDriver driver) {
         super(driver);
+        TestProvider.getInstance().setDriver(driver);
         homePage = new HomePage(driver);
     }
 

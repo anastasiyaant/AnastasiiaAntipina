@@ -36,7 +36,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    @Step("Login as user")
+    @Step("Login as user: '{0}'")
     public void login(String login, String password) {
         userIcon.click();
         loginNameTextField.sendKeys(login);
