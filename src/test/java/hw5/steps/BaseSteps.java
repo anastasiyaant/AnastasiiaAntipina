@@ -1,5 +1,6 @@
 package hw5.steps;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.asserts.SoftAssert;
@@ -16,6 +17,7 @@ public class BaseSteps {
         this.driver = driver;
     }
 
+    @Step("Check that elements have proper text")
     public void checkElementsHaveProperText(List<WebElement> topMenuElements, List<String> headerMenuTitle) {
 
         List<String> actualHeaderMenuTitle = new ArrayList<>();
@@ -28,7 +30,7 @@ public class BaseSteps {
         }
         assertEquals(actualHeaderMenuTitle, headerMenuTitleLower);
     }
-
+    @Step("Check that that service subcategory is right")
     public void checkServiceSubcategoryEquals(List<WebElement> serviceHeaders, List<String> serviceHeaderTitles) {
         List<String> actualServiceHeaderTitles = new ArrayList<>();
         for (WebElement serviceHeader : serviceHeaders) {
@@ -41,6 +43,7 @@ public class BaseSteps {
         sa.assertAll();
     }
 
+    @Step("Check that left service subcategory is right")
     public void checkLeftServiceSubcategoryEquals(List<WebElement> serviceLeftHeaders, List<String> serviceLeftHeaderTitles) {
         List<String> actualServiceLeftHeaderTitles = new ArrayList<>();
         for (WebElement serviceLeftHeader : serviceLeftHeaders) {
@@ -53,6 +56,7 @@ public class BaseSteps {
         sa.assertAll();
     }
 
+    @Step("Check that element is displayed")
     public boolean isElementDisplayed(WebElement element) {
         return element.isDisplayed();
     }

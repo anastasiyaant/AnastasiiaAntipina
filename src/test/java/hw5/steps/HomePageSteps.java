@@ -1,6 +1,6 @@
 package hw5.steps;
 
-import hw3.HomePage;
+import hw5.HomePage;
 import hw3.enums.Menu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -61,12 +61,12 @@ public class HomePageSteps extends BaseSteps {
     }
 
     public void checkIFrameInTheCenter() {
-        WebElement iframe = homePage.getIframe();
+        WebElement iframe = homePage.getIFrame();
         assertTrue(isElementDisplayed(iframe));
     }
 
     public void checkIFrameLogo() {
-        homePage.switchToIframe();
+        homePage.switchToIFrame();
         assertTrue(isElementDisplayed(homePage.getEpamLogo()));
     }
 
