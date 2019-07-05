@@ -14,8 +14,8 @@ import java.util.Arrays;
 import java.util.List;
 
 @Listeners(AllureAttachmentListener.class)
-@Feature("JDI test")
-@Story("Home page testing")
+@Feature(value = "JDI test")
+@Story(value= "Home page testing")
 public class Exercise1 extends BaseClass {
 
     private HomePageSteps homePageSteps;
