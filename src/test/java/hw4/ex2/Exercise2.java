@@ -108,6 +108,7 @@ public class Exercise2 extends BaseClass {
         metalsAndColorsPage.clickSubmitButton();
 
         // 7. Check Results block output on the right-side
+        // TODO Condition could be used static import
         if (testData.getSummary() != null) {
             int sum = 0;
             for (String summaryEx : testData.getSummary()) {
