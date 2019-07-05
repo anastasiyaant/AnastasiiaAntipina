@@ -33,9 +33,11 @@ public class Exercise1 extends BaseClass {
         hp.getUserName().shouldHave(text(user.getFullName()));
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         hp.clickButton(hp.getMenuItem(Menu.SERVICE));
+        // TODO CollectionCondition could be use static import
         hp.getServiceHeaders().shouldHave(CollectionCondition.texts(ServiceHeaderTitles.getServiceHeaderTitlesStringListUpperCase()));
         // 6. Click on "Service" subcategory in the left section and check that drop down contains options
         hp.clickButton(hp.getServiceLeftButton());
+        // TODO CollectionCondition could be use static import
         hp.getServiceLeftHeader().shouldHave(CollectionCondition.textsInAnyOrder(ServiceHeaderTitles.getServiceHeaderTitlesStringList()));
         // 7. Open through the header menu Service -> Table with pages
         hp.clickButton(hp.getMenuItem(Menu.SERVICE));
@@ -54,6 +56,7 @@ public class Exercise1 extends BaseClass {
         //     is corresponded to the value of dropdown
         tableWithPagesPage.checkLogRow("length", EntriesValues.TEN.getValue());
         // 13. Assert that in the table displayed corrected amount of entries
+        // TODO CollectionCondition could be use static import
         tableWithPagesPage.logRowContent("length").shouldHave(CollectionCondition.size(expextedAmountOfRows));
         // 14. Type in "Search" text field
         tableWithPagesPage.getSearchField().setValue(Search_text);
