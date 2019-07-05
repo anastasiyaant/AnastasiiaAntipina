@@ -32,7 +32,7 @@ public class Exercise2 extends BaseClass {
         sa.assertAll();
 
         //6. Click on "Service" subcategory in the left section and check that drop down contains options
-        driver.findElement(By.xpath("//*[@class='menu-title' and contains(@index, 3)]")).click();
+        driver.findElement(By.xpath("//*[@class='menu-TITLE' and contains(@index, 3)]")).click();
         List<WebElement> serviceLeftHeaders = driver.findElements(By.xpath("//*[@class='sub']/li"));
         List<String> serviceLeftHeaderTitles = Arrays.asList("support", "dates", "complex table",
                 "simple table", "table with pages", "different elements");

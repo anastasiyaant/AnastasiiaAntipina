@@ -16,7 +16,7 @@ public class Exercise1 extends BaseClass {
 
     @Test
     public void Exercise1Test() {
-        //2. Assert browser title
+        //2. Assert browser TITLE
         checkOpenPageTitle("Home Page");
 
         //6. Assert that there are 4 items on the header section and they have proper texts
@@ -49,7 +49,7 @@ public class Exercise1 extends BaseClass {
                         "ET DOLORE MAGNA ALIQUA. UT ENIM AD MINIM VENIAM, QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS" +
                         " NISI UT ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR IN REPREHENDERIT IN" +
                         " VOLUPTATE VELIT ESSE CILLUM DOLORE EU FUGIAT NULLA PARIATUR.");
-        WebElement mainHeaderTextUpper = driver.findElement(By.name("main-title"));
+        WebElement mainHeaderTextUpper = driver.findElement(By.name("main-TITLE"));
         assertEquals(mainHeaderTextUpper.getText(), mainHeadersText.get(0));
 
         WebElement mainHeaderTextDown = driver.findElement(By.name("jdi-text"));

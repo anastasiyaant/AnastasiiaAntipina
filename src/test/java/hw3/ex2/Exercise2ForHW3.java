@@ -32,7 +32,7 @@ public class Exercise2ForHW3 extends BaseClass {
 
     @Test
     public void test2() {
-        // 2. Assert browser title
+        // 2. Assert browser TITLE
         homePageSteps.checkOpenPageTitle(title);
         // 3.Perform login
         User user = readUserData("src/test/resources/properties/user.properties");
