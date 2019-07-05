@@ -16,12 +16,12 @@ import java.util.List;
 @Listeners(AllureAttachmentListener.class)
 @Feature("JDI test")
 @Story("Home page testing")
-public class Exercise1 extends BaseClass {
+public class Exercise1Fail extends BaseClass {
 
     private HomePageSteps homePageSteps;
     static final int IMAGES_COUNT = 4;
     static final List<String> ICON_TEXT = Arrays.asList("To include good practices\nand ideas from successful\nEPAM project",
-            "To be flexible and\ncustomizable", "To be multiplatform",
+            "To be flexible and\ncustomizable", "To be multiplatform1",
             "Already have good base\n(about 20 internal and\nsome external projects),\nwish to get more…");
     static final List<String> MAIN_HEADERS_TEXT = Arrays.asList("EPAM FRAMEWORK WISHES…",
             "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE " +
@@ -73,3 +73,4 @@ public class Exercise1 extends BaseClass {
         homePageSteps.checkFooter();
     }
 }
+

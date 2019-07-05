@@ -36,7 +36,7 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    @Step("Login as user: '{0}'")
+
     public void login(String login, String password) {
         userIcon.click();
         loginNameTextField.sendKeys(login);
@@ -44,47 +44,38 @@ public class HomePage extends BasePage {
         loginButton.click();
     }
 
-    @Step("Get images")
     public List<WebElement> getImages() {
         return images;
     }
 
-    @Step("Get icon text elements")
     public List<WebElement> getIconTextElements() {
         return iconTextElements;
     }
 
-    @Step("Get first main header text")
     public WebElement getMainHeaderTextUpper() {
         return mainHeaderTextUpper;
     }
 
-    @Step("Get second main header text")
     public WebElement getMainHeaderTextDown() {
         return mainHeaderTextDown;
     }
 
-    @Step("Get IFrame")
     public WebElement getIFrame() {
         return iframe;
     }
 
-    @Step("Switch to IFrame")
     public void switchToIFrame() {
         driver.switchTo().frame(iframe);
     }
 
-    @Step("Get EPAM logo")
     public WebElement getEpamLogo() {
         return epamLogo;
     }
 
-    @Step("Get subHeader")
     public String getSubHeader() {
         return subHeader.getText();
     }
 
-    @Step("Get link")
     public String getLink() {
         return subHeader.getAttribute("href");
     }

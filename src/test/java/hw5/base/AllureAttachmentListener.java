@@ -1,4 +1,4 @@
-package hw5.ex1;
+package hw5.base;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
