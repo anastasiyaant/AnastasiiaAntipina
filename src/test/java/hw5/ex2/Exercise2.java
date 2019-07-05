@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 
 @Listeners(AllureAttachmentListener.class)
 @Feature(value = "JDI test")
-@Story(value= "Home page testing")
+@Story(value= "Different Elements page testing")
 public class Exercise2 extends BaseClass {
 
     HomePageSteps homePageSteps;
