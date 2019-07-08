@@ -14,8 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Listeners(AllureAttachmentListener.class)
-@Feature(value = "JDI test")
-@Story(value = "Home page testing")
+
 public class Exercise1Fail extends BaseClass {
 
     private HomePageSteps homePageSteps;
@@ -38,6 +37,8 @@ public class Exercise1Fail extends BaseClass {
         homePageSteps = new HomePageSteps(driver);
     }
 
+    @Feature(value = "JDI test")
+    @Story(value = "Home page testing")
     @Test
     public void test1() {
         //2. Assert browser TITLE

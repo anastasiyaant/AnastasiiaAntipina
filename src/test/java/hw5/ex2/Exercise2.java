@@ -17,8 +17,6 @@ import org.testng.annotations.Test;
 
 
 @Listeners(AllureAttachmentListener.class)
-@Feature(value = "JDI test")
-@Story(value= "Different Elements page testing")
 public class Exercise2 extends BaseClass {
 
     HomePageSteps homePageSteps;
@@ -38,6 +36,9 @@ public class Exercise2 extends BaseClass {
         diffElSteps = new DifferentElementSteps(driver);
     }
 
+
+    @Feature(value = "JDI test")
+    @Story(value= "Different Elements page testing")
     @Test
     public void test2() {
         // 2. Assert browser TITLE
