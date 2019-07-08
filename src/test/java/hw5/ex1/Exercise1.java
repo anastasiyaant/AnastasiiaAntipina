@@ -38,7 +38,7 @@ public class Exercise1 extends BaseClass {
 
     @Feature(value = "JDI test")
     @Story(value= "Home page testing")
-    @Test
+    @Test (groups = "All")
     public void test1() {
         //2. Assert browser TITLE
         homePageSteps.checkOpenPageTitle(TITLE);
