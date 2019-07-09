@@ -1,5 +1,6 @@
 package hw6;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,10 @@ public abstract class BasePage {
     protected WebElement headerMenuService;
     @FindBy(xpath = "//*[@class='dropdown-menu']/li/a[text()='Different elements']")
     protected WebElement differentElementsPageServiceHeaderMenuButton;
+
+    @FindBy(xpath = "//*[@class='dropdown-menu']/li/a[text()='User Table ']")
+    protected WebElement userTablePageButtonOnServiceHeaderMenu;
+
     @FindBy(xpath = "//*[@class='dropdown-menu']/li")
     protected List<WebElement> serviceHeaders;
 
@@ -52,20 +57,8 @@ public abstract class BasePage {
         return fullUserName.getText();
     }
 
-    public List<WebElement> getTopMenuElements() {
-        return topMenuElements;
-    }
-
-    public void switchToOriginalWindow() {
-        driver.switchTo().defaultContent();
-    }
-
     public WebElement getLeftSection() {
         return leftSection;
-    }
-
-    public WebElement getFooter() {
-        return footer;
     }
 
     public WebElement getHeaderMenuService() {
@@ -87,4 +80,19 @@ public abstract class BasePage {
     public WebElement getDifferentElementsPageServiceHeaderMenuButton() {
         return differentElementsPageServiceHeaderMenuButton;
     }
+
+    public WebElement getUserTablePageButtonFromServiceHeader() {
+        return userTablePageButtonOnServiceHeaderMenu;
+    }
+
+    public WebElement checkLogRow(String element, String condition) {
+        return driver.findElement(By.xpath("//ul[@class='panel-body-list logs']//li[contains(string(),'"
+                + element + "')" + "and contains(text(), '" + condition + "')]"));
+    }
+
+    public WebElement checkLogRow(String value) {
+        return driver.findElement(By.xpath("//ul[@class='panel-body-list logs']//li[contains(string(),'"
+                + value + "')]"));
+    }
+
 }

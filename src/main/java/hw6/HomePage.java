@@ -25,27 +25,21 @@ public class HomePage extends BasePage {
     protected WebElement mainHeaderTextUpper;
     @FindBy(name = "jdi-text")
     protected WebElement mainHeaderTextDown;
-    @FindBy(id = "iframe")
-    protected WebElement iframe;
-    @FindBy(id = "epam_logo")
-    protected WebElement epamLogo;
-    @FindBy(linkText = "JDI GITHUB")
-    protected WebElement subHeader;
 
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    public void userIconClick(){
+    public void userIconClick() {
         userIcon.click();
     }
 
-    public void fillLoginTextField(String username){
+    public void fillLoginTextField(String username) {
         loginNameTextField.sendKeys(username);
     }
 
-    public void fillPasswordTextField(String password){
+    public void fillPasswordTextField(String password) {
         this.password.sendKeys(password);
     }
 
@@ -70,30 +64,15 @@ public class HomePage extends BasePage {
         return mainHeaderTextDown;
     }
 
-    public WebElement getIFrame() {
-        return iframe;
-    }
 
-    public void switchToIFrame() {
-        driver.switchTo().frame(iframe);
-    }
-
-    public WebElement getEpamLogo() {
-        return epamLogo;
-    }
-
-    public String getSubHeader() {
-        return subHeader.getText();
-    }
-
-    public String getLink() {
-        return subHeader.getAttribute("href");
-    }
-
-    public static HomePage getInstanse(WebDriver driver){
-        if (instanse==null){
+    public static HomePage getInstanse(WebDriver driver) {
+        if (instanse == null) {
             instanse = new HomePage(driver);
         }
         return instanse;
+    }
+
+    public static void killInstance() {
+        instanse = null;
     }
 }

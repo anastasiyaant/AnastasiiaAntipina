@@ -1,6 +1,5 @@
 package hw6;
 
-import hw3.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,10 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static org.testng.Assert.assertFalse;
-
 public class DifferentElementPage extends BasePage {
-    private static DifferentElementPage instanse;
+    private static DifferentElementPage instance;
     @FindBy(className = "label-checkbox")
     private List<WebElement> checkboxes;
     @FindBy(className = "label-radio")
@@ -76,10 +73,6 @@ public class DifferentElementPage extends BasePage {
         return driver.findElement(By.xpath("//label[contains(string(), '" + name + "')]/input"));
     }
 
-    public WebElement checkLogRow(String element, String condition) {
-        return driver.findElement(By.xpath("//ul[@class='panel-body-list logs']//li[contains(string(),'"
-                + element + "')" + "and contains(text(), '" + condition + "')]"));
-    }
 
     public void clickRadio(String name) {
         getRadioByName(name).click();
@@ -97,15 +90,16 @@ public class DifferentElementPage extends BasePage {
         return driver.findElement(By.xpath("//option[contains(text(), '" + name + "')]"));
     }
 
-    public void checkUnselectedCheckbox(String name) {
-        assertFalse(driver.findElement(By.xpath("//label[contains(string(), '" + name + "')]/input")).isSelected());
+
+    public static DifferentElementPage getInstanse(WebDriver driver) {
+        if (instance == null) {
+            instance = new DifferentElementPage(driver);
+        }
+        return instance;
     }
 
-    public static DifferentElementPage getInstanse(WebDriver driver){
-        if (instanse==null){
-            instanse = new DifferentElementPage(driver);
-        }
-        return instanse;
+    public static void killInstance() {
+        instance = null;
     }
 
 }

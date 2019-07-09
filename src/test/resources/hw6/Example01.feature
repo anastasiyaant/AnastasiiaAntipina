@@ -1,21 +1,22 @@
+@exercise1
 Feature: Example01
-  Scenario: exercise1
-    Given I am on the JDI Index Page
+  Scenario: Different Element Page Test
+    Given I am on Home Page
     And I login as
-    | userName | password|
-    | epam | 1234|
-    And browser title should be 'Home Page'
+      | userName | password|
+      | epam | 1234|
+    And 'Home Page' page is opened
     And User name should be 'PITER CHAILOVSKII'
     And '4' pictures are exist
     And '4' texts under pictures are exist
     And '2' texts above are exist
-    When I click 'Service' header menu button
+    When I click on 'Service' button in Header
     Then Dropdown list should be displayed
     And Dropdown list should have 'Support, Dates, Search, Complex Table, Simple Table, User Table, Table With Pages, Different Elements, Performance'
     When  I click 'Service' left menu button
     Then Dropdown left list should be displayed
     And Dropdown left list should have 'Support, Dates, Complex Table, Simple Table, Search, User Table, Table with pages, Different elements, Performance'
-    When I click 'Service' header menu button
+    When I click on 'Service' button in Header
     And I click 'Different Elements' service menu button
     And '4' checkboxes are exist
     And '4' radios are exist

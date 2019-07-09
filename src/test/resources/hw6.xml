@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name = "Home work 6">
+    <test name = "hw6">
+        <classes>
+            <class name="hw6.RunAcceptanceExercise1"/>
+            <class name="hw6.RunAcceptanceExercise2"/>
+        </classes>
+    </test>
+</suite>
+

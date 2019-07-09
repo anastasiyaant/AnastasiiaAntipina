@@ -1,12 +1,13 @@
-package hw6.steps.Exercise1;
+package hw6.steps;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import hw6.hooks.TestContext;
-import hw6.steps.BaseStep;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
@@ -20,7 +21,7 @@ public class AssertionSteps extends BaseStep {
         assertEquals(userNameWebElement.getText(), expectedUsername);
     }
 
-    @Then("browser title should be '(Home Page)'")
+    @Then("'(User Table|Home Page)' page is opened")
     public void browserTitleShouldBe(String expectedTitle) {
         assertEquals(homePage.getPageTitle(), expectedTitle);
     }
@@ -145,4 +146,62 @@ public class AssertionSteps extends BaseStep {
         }
     }
 
+    @Then("'([0-9]+)' NumberType Dropdowns are displayed on Users Table on User Table Page")
+    public void countNumberTypeDropdownsAreDiaplayedOnUserPage(int expectedCount) {
+        List<WebElement> dropdowns = userPage.getDropdowns();
+        assertEquals(dropdowns.size(), expectedCount);
+
+    }
+
+    @Then("'([0-9]+)' User names are displayed on Users Table on User Table Page")
+    public void countUserNamesAreDisplayedOnUserTable(int expectedCount) {
+        List<WebElement> userNames = userPage.getUsernames();
+        assertEquals(userNames.size(), expectedCount);
+    }
+
+    @Then("'([0-9]+)' Description images are displayed on Users Table on User Table Page")
+    public void countDescriptionImagesAreDisplayedOnUserPage(int expectedCount) {
+        List<WebElement> images = userPage.getImages();
+        assertEquals(images.size(), expectedCount);
+    }
+
+    @Then("'([0-9]+)' Description texts under images are displayed on Users Table on User Table Page")
+    public void countDescriptionTextsAreDisplayedOnUserPage(int expectedCount) {
+        List<WebElement> desciptions = userPage.getTextsUnderImages();
+        assertEquals(desciptions.size(), expectedCount);
+    }
+
+    @Then("'([0-9]+)' checkboxes are displayed on Users Table on User Table Page")
+    public void countCheckBoxesAreDisplayedOnUserPage(int expectedCount) {
+        List<WebElement> checkboxes = userPage.getCheckboxes();
+        assertEquals(checkboxes.size(), expectedCount);
+    }
+
+    @Then("User table contains following values:")
+    public void userTableContains(DataTable table) {
+        List<Map<String, String>> tableAsMaps = table.asMaps(String.class, String.class);
+        for (int i = 0; i < tableAsMaps.size(); i++) {
+            assertEquals(userPage.getUsernames().get(i).getText(), tableAsMaps.get(i).get("User"));
+        }
+    }
+
+    @Then("I log row has '([^\"]*)' text in log section")
+    public void logRowValue(String value) {
+        WebElement logRowEl = userPage.checkLogRow(value);
+        assertTrue(isElementDisplayed(logRowEl));
+
+
+    }
+
+    @Then("droplist contains values")
+    public void droplistContainsValues(List<String> values) {
+        List<WebElement> actualValues = TestContext.getDriver().findElements(By.tagName("option"));
+        List<String> actualValuesToString = actualValues.
+                stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+        for (String actualValue : actualValuesToString) {
+            assertTrue(values.contains(actualValue));
+        }
+    }
 }

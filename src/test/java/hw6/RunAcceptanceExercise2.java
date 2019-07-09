@@ -5,7 +5,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
         features = {"classpath:hw6"},
-        glue = {"classpath:hw6"}
+        glue = {"classpath:hw6"},
+        tags = {"@exercise2"}
 )
-public class RunAcceptanceIT extends AbstractTestNGCucumberTests {
+public class RunAcceptanceExercise2 extends AbstractTestNGCucumberTests {
 }
