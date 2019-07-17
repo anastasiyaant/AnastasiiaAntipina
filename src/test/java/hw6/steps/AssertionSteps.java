@@ -26,19 +26,19 @@ public class AssertionSteps extends BaseStep {
         assertEquals(homePage.getPageTitle(), expectedTitle);
     }
 
-    @Then("'([0-9]+)' pictures are exist")
+    @Then("'([0-9]+)' pictures are exist on Home Page")
     public void picturesAreExist(int expectedCount) {
         List<WebElement> images = homePage.getImages();
         assertEquals(images.size(), expectedCount);
     }
 
-    @Then("'([0-9]+)' texts under pictures are exist")
+    @Then("'([0-9]+)' texts under pictures are exist on Home Page")
     public void textUnderPicturesAreExist(int expectedCount) {
         List<WebElement> iconTextElements = homePage.getIconTextElements();
         assertEquals(iconTextElements.size(), expectedCount);
     }
 
-    @Then("'([0-9]+)' texts above are exist")
+    @Then("'([0-9]+)' texts above are exist on Home Page")
     public void textsAboveAreExist(int expectedCount) {
         WebElement mainHeaderTextUpper = homePage.getMainHeaderTextUpper();
         assertTrue(mainHeaderTextUpper.isDisplayed());
@@ -46,12 +46,12 @@ public class AssertionSteps extends BaseStep {
         assertTrue(mainHeaderTextDown.isDisplayed());
     }
 
-    @Then("Dropdown list should be displayed")
+    @Then("Dropdown list should be displayed on Home Page")
     public void dropdownListShouldBe() {
         assertTrue(TestContext.getDriver().findElement(By.className("dropdown-menu")).isDisplayed());
     }
 
-    @Then("Dropdown list should have '([^\"]*)'")
+    @Then("Dropdown list on Home Page should have '([^\"]*)'")
     public void dropdownListShouldHave(List<String> items) {
         List<WebElement> serviceHeaders = homePage.getServiceHeaders();
         List<String> serviceHeadersList = serviceHeaders.
@@ -62,12 +62,12 @@ public class AssertionSteps extends BaseStep {
         assertEquals(serviceHeadersList, items);
     }
 
-    @Then("Dropdown left list should be displayed")
+    @Then("Dropdown left list should be displayed on Home Page")
     public void dropdownLeftListShouldBe() {
         assertTrue(TestContext.getDriver().findElement(By.className("sub")).isDisplayed());
     }
 
-    @Then("Dropdown left list should have '([^\"]*)'")
+    @Then("Dropdown left list on Home Page should have '([^\"]*)'")
     public void dropdownLeftListShouldHave(List<String> items) {
         List<WebElement> serviceHeaders = homePage.getServiceLeftHeader();
         List<String> serviceHeadersList = serviceHeaders.
@@ -77,25 +77,25 @@ public class AssertionSteps extends BaseStep {
         assertEquals(serviceHeadersList, items);
     }
 
-    @Then("'([0-9]+)' checkboxes are exist")
+    @Then("'([0-9]+)' checkboxes are exist on Different Elements Page")
     public void checkboxesAreExist(int expectedCount) {
         List<WebElement> checkboxes = diffPage.getCheckboxes();
         assertEquals(checkboxes.size(), expectedCount);
     }
 
-    @Then("'([0-9]+)' radios are exist")
+    @Then("'([0-9]+)' radios are exist on Different Elements Page")
     public void radiosAreExist(int expectedCount) {
         List<WebElement> radios = diffPage.getRadios();
         assertEquals(radios.size(), expectedCount);
     }
 
-    @Then("'([0-9]+)' dropdowns are exist")
+    @Then("'([0-9]+)' dropdowns are exist on Different Elements Page")
     public void dropdownsAreExist(int expectedCount) {
         List<WebElement> dropdowns = diffPage.getDropdowns();
         assertEquals(dropdowns.size(), expectedCount);
     }
 
-    @Then("'([0-9]+)' buttons are exist")
+    @Then("'([0-9]+)' buttons are exist on Different Elements Page")
     public void buttonsAreExist(int expectedCount) {
         WebElement buttonLeft = diffPage.getButtonLeft();
         WebElement buttonRight = diffPage.getButtonRight();
@@ -103,43 +103,43 @@ public class AssertionSteps extends BaseStep {
         assertTrue(isElementDisplayed(buttonRight));
     }
 
-    @Then("right section should be")
+    @Then("right section should be on Different Elements Page")
     public void rightSectionShouldBe() {
         WebElement rightSection = diffPage.getRightSection();
         assertTrue(isElementDisplayed(rightSection));
     }
 
-    @Then("left section should be")
+    @Then("left section should be on Different Elements Page")
     public void leftSectionShouldBe() {
         WebElement leftSection = diffPage.getLeftSectionDiffElPage();
         assertTrue(isElementDisplayed(leftSection));
     }
 
-    @Then("I select checkboxes '([^\"]*)'")
+    @Then("I select checkboxes '([^\"]*)' on Different Elements Page")
     public void iSelectCheckbox(List<String> values) {
         for (String value : values) {
             diffPage.clickCheckbox(value);
         }
     }
 
-    @Then("Individual log row and value corresponded to the status '(.*)' with condition '(.*)'")
+    @Then("Individual log row and value corresponded to the status '(.*)' with condition '(.*)' on Different Elements Page")
     public void individualLogRowCorrespondedToTheStatus(String element, String condition) {
         WebElement logRowEl = diffPage.checkLogRow(element, condition);
         assertTrue(isElementDisplayed(logRowEl));
     }
 
-    @Then("I select radio '(.*)'")
+    @Then("I select radio '(.*)' on Different Elements Page")
     public void iSelectRadio(String value) {
         diffPage.clickRadio(value);
     }
 
 
-    @Then("I select dropdown '(.*)'")
+    @Then("I select dropdown '(.*)' on Different Elements Page")
     public void iSelectDropdown(String value) {
         diffPage.clickDropdown(value);
     }
 
-    @Then("I unselect checkboxes '([^\"]*)'")
+    @Then("I unselect checkboxes '([^\"]*)' on Different Elements Page")
     public void iUnselectCheckbox(List<String> values) {
         for (String value : values) {
             diffPage.clickCheckbox(value);

@@ -13,9 +13,10 @@ import static com.codeborne.selenide.Selenide.close;
 
 public class BaseClass {
     // TODO Java Code Code convention for the constants
-    public static final String link = "https://epam.github.io/JDI";
-    public static final String browserTitle = "Home Page";
-    public static final String userDataFilePath = "src/test/resources//properties/user.properties";
+    //fixed
+    public static final String LINK = "https://epam.github.io/JDI";
+    public static final String BROWSER_TITLE = "Home Page";
+    public static final String USER_DATA_FILE_PATH = "src/test/resources//properties/user.properties";
 
     @BeforeMethod
     public void setUp() {

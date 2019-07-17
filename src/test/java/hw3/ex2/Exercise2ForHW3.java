@@ -16,11 +16,12 @@ public class Exercise2ForHW3 extends BaseClass {
     HomePageSteps homePageSteps;
     DifferentElementSteps diffElSteps;
     // TODO Java Code Convention for the constants
-    static final int checkboxesCount = 4;
-    static final int dropdownsCount = 1;
-    static final int radioCount = 4;
-    static final String radioElement = "metal";
-    static final String dropdownElement = "Colors";
+    //fixed
+    static final int CHECKBOXES_COUNT = 4;
+    static final int DROPDOWNS_COUNT = 1;
+    static final int RADIO_COUNT = 4;
+    static final String RADIO_ELEMENT = "metal";
+    static final String DROPDOWN_ELEMENT = "Colors";
 
     @BeforeMethod
     @Override
@@ -33,7 +34,7 @@ public class Exercise2ForHW3 extends BaseClass {
     @Test
     public void test2() {
         // 2. Assert browser TITLE
-        homePageSteps.checkOpenPageTitle(title);
+        homePageSteps.checkOpenPageTitle(TITLE);
         // 3.Perform login
         User user = readUserData("src/test/resources/properties/user.properties");
         homePageSteps.loginUser(user.getUserName(), user.getPassword());
@@ -46,7 +47,7 @@ public class Exercise2ForHW3 extends BaseClass {
         //7. Open through the header menu Service->Different element page
         diffElSteps.openDifElpage();
         //8. Check interface on Different element page, it contains all needed elements
-        diffElSteps.checkInterfaceDiffELPAge(checkboxesCount, radioCount, dropdownsCount);
+        diffElSteps.checkInterfaceDiffELPAge(CHECKBOXES_COUNT, RADIO_COUNT, DROPDOWNS_COUNT);
         //9. Assert that there is Right Section
         diffElSteps.checkRightSection();
         //10. Assert that there is Left Section
@@ -61,11 +62,11 @@ public class Exercise2ForHW3 extends BaseClass {
         //13.Select radio
         diffElSteps.selectRadio(Radio.SELEN.getValue());
         //14. Assert that for radiobutton there is a log row and value is corresponded to the section value
-        diffElSteps.checkLogRow(radioElement, Radio.SELEN.getValue());
+        diffElSteps.checkLogRow(RADIO_ELEMENT, Radio.SELEN.getValue());
         //15. Select in dropdown
         diffElSteps.selectDropdown(Colors.YELLOW.getValue());
         //16. Assert that for dropdown there is a log row and value is corresponded to the section value
-        diffElSteps.checkLogRow(dropdownElement, Colors.YELLOW.getValue());
+        diffElSteps.checkLogRow(DROPDOWN_ELEMENT, Colors.YELLOW.getValue());
         //17. Unselect and assert checkboxes
         diffElSteps.unselectCheckbox(Checkbox.WATER.getValue());
         diffElSteps.unselectCheckbox(Checkbox.WIND.getValue());

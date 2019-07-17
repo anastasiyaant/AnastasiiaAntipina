@@ -72,7 +72,7 @@ public class Exercise1 extends BaseClass {
         WebElement subHeader = driver.findElement(By.linkText("JDI GITHUB"));
         assertTrue(isElementDisplayed(subHeader));
 
-        //14. Assert that JDI GITHUB is a link and has a proper URL
+        //14. Assert that JDI GITHUB is a LINK and has a proper URL
         String subHeaderLink = subHeader.getAttribute("href");
         assertEquals(subHeaderLink, "https://github.com/epam/JDI");
 

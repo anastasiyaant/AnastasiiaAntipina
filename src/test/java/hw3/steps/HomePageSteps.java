@@ -62,13 +62,13 @@ public class HomePageSteps extends BaseSteps {
 
     // TODO checkIFrameInTheCenter
     public void checkIframeInTheCenter() {
-        WebElement iframe = homePage.getIframe();
+        WebElement iframe = homePage.getIFrame();
         assertTrue(isElementDisplayed(iframe));
     }
 
     // TODO checkIFrameLogo
     public void checkIframeLogo() {
-        homePage.switchToIframe();
+        homePage.switchToIFrame();
         assertTrue(isElementDisplayed(homePage.getEpamLogo()));
     }
 

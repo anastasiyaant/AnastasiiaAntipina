@@ -60,12 +60,14 @@ public class HomePage extends BasePage {
     }
 
     // TODO getIFrame
-    public WebElement getIframe() {
+    //fixed
+    public WebElement getIFrame() {
         return iframe;
     }
 
     // TODO switchToIFrame
-    public void switchToIframe() {
+    //fixed
+    public void switchToIFrame() {
         driver.switchTo().frame(iframe);
     }
 

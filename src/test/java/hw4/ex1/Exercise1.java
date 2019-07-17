@@ -11,34 +11,37 @@ import hw4.enums.Menu;
 import hw4.enums.ServiceHeaderTitles;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class Exercise1 extends BaseClass {
-    static final int expextedAmountOfRows = 1;
-    static final String Search_text = "Custom";
+    static final int EXPEXTED_AMOUNT_OF_ROWS = 1;
+    static final String SEARCH_TEXT = "Custom";
 
     @Test
     public void test1() {
         //1. Open test site by URL
-        HomePage hp = open(link, HomePage.class);
+        HomePage hp = open(LINK, HomePage.class);
         // 2. Assert Browser Title
-        assertEquals(title(), browserTitle);
+        assertEquals(title(), BROWSER_TITLE);
         // 3.Perform login
-        User user = readUserData(userDataFilePath);
+        User user = readUserData(USER_DATA_FILE_PATH);
         hp.login(user.getUserName(), user.getPassword());
         // 4.Assert User name in the left-top side of screen that user is loggined
         hp.getUserName().shouldHave(text(user.getFullName()));
         // 5. Click on "Service" subcategory in the header and check that drop down contains options
         hp.clickButton(hp.getMenuItem(Menu.SERVICE));
         // TODO CollectionCondition could be use static import
-        hp.getServiceHeaders().shouldHave(CollectionCondition.texts(ServiceHeaderTitles.getServiceHeaderTitlesStringListUpperCase()));
+        //fixed
+        hp.getServiceHeaders().shouldHave(texts(ServiceHeaderTitles.getServiceHeaderTitlesStringListUpperCase()));
         // 6. Click on "Service" subcategory in the left section and check that drop down contains options
         hp.clickButton(hp.getServiceLeftButton());
         // TODO CollectionCondition could be use static import
-        hp.getServiceLeftHeader().shouldHave(CollectionCondition.textsInAnyOrder(ServiceHeaderTitles.getServiceHeaderTitlesStringList()));
+        //fixed
+        hp.getServiceLeftHeader().shouldHave(textsInAnyOrder(ServiceHeaderTitles.getServiceHeaderTitlesStringList()));
         // 7. Open through the header menu Service -> Table with pages
         hp.clickButton(hp.getMenuItem(Menu.SERVICE));
         hp.clickButton(hp.getTableWithPagesButton());
@@ -57,10 +60,11 @@ public class Exercise1 extends BaseClass {
         tableWithPagesPage.checkLogRow("length", EntriesValues.TEN.getValue());
         // 13. Assert that in the table displayed corrected amount of entries
         // TODO CollectionCondition could be use static import
-        tableWithPagesPage.logRowContent("length").shouldHave(CollectionCondition.size(expextedAmountOfRows));
+        //fixed
+        tableWithPagesPage.logRowContent("length").shouldHave(size(EXPEXTED_AMOUNT_OF_ROWS));
         // 14. Type in "Search" text field
-        tableWithPagesPage.getSearchField().setValue(Search_text);
+        tableWithPagesPage.getSearchField().setValue(SEARCH_TEXT);
         // 15. Assert the table contains only records with Search field value
-        tableWithPagesPage.getSearchResultsRows().forEach(row -> row.shouldHave(text(Search_text)));
+        tableWithPagesPage.getSearchResultsRows().forEach(row -> row.shouldHave(text(SEARCH_TEXT)));
     }
 }

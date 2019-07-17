@@ -16,7 +16,8 @@ public class BaseClass {
 
     protected WebDriver driver;
     // TODO JAva Code Convention for the constants
-    public static final String title = "Home Page";
+    // fixed
+    public static final String TITLE = "Home Page";
 
     @BeforeSuite
     public void setUpDriverPath() {

@@ -42,7 +42,7 @@ public class Exercise2 extends BaseClass {
     @Test
     public void test2() {
         // 2. Assert browser TITLE
-        homePageSteps.checkOpenPageTitle(title);
+        homePageSteps.checkOpenPageTitle(TITLE);
         // 3.Perform login
         User user = readUserData("src/test/resources/properties/user.properties");
         homePageSteps.loginUser(user.getUserName(), user.getPassword());

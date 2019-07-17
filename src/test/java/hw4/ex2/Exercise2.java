@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
 import static org.testng.AssertJUnit.assertEquals;
@@ -59,13 +60,13 @@ public class Exercise2 extends BaseClass {
     @Test(dataProvider = "builder")
     public void test2(MetalAndColorsBuilder testData) {
         // 1. Open test site by URL
-        HomePage hp = open(link, HomePage.class);
+        HomePage hp = open(LINK, HomePage.class);
         // 2. Assert Browser Title
-        assertEquals(title(), browserTitle);
+        assertEquals(title(), BROWSER_TITLE);
         // 3.Perform login
-        User user = readUserData(userDataFilePath);
+        User user = readUserData(USER_DATA_FILE_PATH);
         hp.login(user.getUserName(), user.getPassword());
-        // 4. Click on the link on the Header Section
+        // 4. Click on the LINK on the Header Section
         hp.clickButton(hp.getMenuItem(Menu.METALS_AND_COLORS));
         MetalsAndColorsPage metalsAndColorsPage = new MetalsAndColorsPage();
         // 5. Fill form  on the page
@@ -109,41 +110,42 @@ public class Exercise2 extends BaseClass {
 
         // 7. Check Results block output on the right-side
         // TODO Condition could be used static import
+        // fixed
         if (testData.getSummary() != null) {
             int sum = 0;
             for (String summaryEx : testData.getSummary()) {
                 sum += Integer.valueOf(summaryEx);
             }
             metalsAndColorsPage.findElementByName(MetalAndColorsElements.SUMMARY.getName())
-                    .shouldHave(Condition.text(String.valueOf(sum)));
+                    .shouldHave(text(String.valueOf(sum)));
 
         }
 
         if (testData.getElements() != null) {
             for (Elements element : testData.getElements()) {
                 metalsAndColorsPage.findElementByName(MetalAndColorsElements.ELEMENTS.getName())
-                        .shouldHave(Condition.text(element.getValue()));
+                        .shouldHave(text(element.getValue()));
             }
         }
 
         if (testData.getColors() != null) {
             for (Colors color : testData.getColors()) {
                 metalsAndColorsPage.findElementByName(MetalAndColorsElements.COLOR.getName())
-                        .shouldHave(Condition.text(color.getValue()));
+                        .shouldHave(text(color.getValue()));
             }
         }
 
         if (testData.getMetals() != null) {
             for (Metals metal : testData.getMetals()) {
                 metalsAndColorsPage.findElementByName(MetalAndColorsElements.METAL.getName())
-                        .shouldHave(Condition.text(metal.getValue()));
+                        .shouldHave(text(metal.getValue()));
             }
         }
 
         if (testData.getVegetables() != null) {
             for (Vegetables vegetable : testData.getVegetables()) {
                 metalsAndColorsPage.findElementByName(MetalAndColorsElements.VEGETABLES.getName())
-                        .shouldHave(Condition.text(String.valueOf(vegetable.getValue())));
+                        .shouldHave(text(String.valueOf(vegetable.getValue())));
             }
         }
     }

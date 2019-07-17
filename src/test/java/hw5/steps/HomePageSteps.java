@@ -22,7 +22,7 @@ public class HomePageSteps extends BaseSteps {
         TestProvider.getInstance().setDriver(driver);
         homePage = new HomePage(driver);
     }
-    @Step("Check page title")
+    @Step("Check page TITLE")
     public void checkOpenPageTitle(String title) {
         assertEquals(homePage.getPageTitle(), title);
     }
@@ -86,7 +86,7 @@ public class HomePageSteps extends BaseSteps {
         String realSubHeader = homePage.getSubHeader();
         assertEquals(realSubHeader, subHeader);
     }
-    @Step("Check link")
+    @Step("Check LINK")
     public void checkLink(String link) {
         String subHeaderLink = homePage.getLink();
         assertEquals(subHeaderLink, link);
